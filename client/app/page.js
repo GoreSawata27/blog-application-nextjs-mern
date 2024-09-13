@@ -1,3 +1,6 @@
-export default function Home() {
-  return <div>Blog app</div>;
+import React from "react";
+import Login from "./login/page";
+
+export default function page() {
+  return <Login />;
 }
