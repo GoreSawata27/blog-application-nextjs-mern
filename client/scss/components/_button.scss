@@ -1,0 +1,21 @@
+a,
+button,
+div {
+  &.btn {
+    padding: rem(10);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    text-decoration: none;
+    width: auto;
+    transition: 0.4s;
+
+    &.disabled,
+    &:disabled {
+      opacity: 0.8;
+      cursor: not-allowed;
+    }
+  }
+}
