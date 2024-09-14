@@ -1,5 +1,5 @@
 import axios from "axios";
-import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 const _api = axios.create({
   baseURL: "http://localhost:8000",
@@ -27,7 +27,7 @@ _api.interceptors.request.use(
       );
     }
 
-    config.headers.Authorization = `${token}`;
+    config.headers.Authorization = `Bearer ${token}`;
     return config;
   },
   (error) => {

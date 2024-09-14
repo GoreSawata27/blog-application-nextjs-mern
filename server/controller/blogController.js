@@ -60,12 +60,11 @@ export const updateBlog = async (req, res) => {
 
 export const deleteBlog = async (req, res) => {
   try {
-    const blog = await Blog.findById(req.params.id);
-    if (!blog) {
+    const result = await Blog.findByIdAndDelete(req.params.id);
+    if (!result) {
       return res.status(404).json({ message: "Blog not found" });
     }
 
-    await blog.remove();
     res.status(200).json({ message: "Blog deleted" });
   } catch (error) {
     res.status(500).json({ message: error.message });
