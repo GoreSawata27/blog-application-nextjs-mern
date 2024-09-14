@@ -1,0 +1,40 @@
+.blog-page {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    font-family: Inter;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    color: #1b1d21;
+  }
+}
+
+.blog-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-container {
+  width: 100%;
+  height: auto;
+}

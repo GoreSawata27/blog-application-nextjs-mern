@@ -22,7 +22,9 @@ const Layout = ({ children }) => {
       </div>
       <div>
         <Navbar />
-        {children}
+        <div div className="content">
+          {children}
+        </div>
       </div>
     </main>
   );

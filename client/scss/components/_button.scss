@@ -3,7 +3,6 @@ button,
 div {
   &.btn {
     padding: rem(10);
-    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,11 +10,40 @@ div {
     text-decoration: none;
     width: auto;
     transition: 0.4s;
+    box-shadow: 0px 2px 5px 0px #8081910d;
 
     &.disabled,
     &:disabled {
-      opacity: 0.8;
+      opacity: 0.6;
       cursor: not-allowed;
+    }
+
+    &.add-btn {
+      //styleName: Buttons/Big – 16 sB;
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+      text-align: center;
+      color: #6c5dd3;
+      background: #ffff;
+      width: 137px;
+      height: 46px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      border-radius: 12px;
+    }
+    &.preview-btn {
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+      text-align: center;
+      background-color: #6c5dd3;
+      color: #ffff;
+      width: 137px;
+      height: 46px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      border-radius: 12px;
     }
   }
 }
