@@ -1,6 +1,5 @@
 .card-container {
   width: 260px;
-  height: 365px;
   border-radius: 10px 0 0 0;
   background-color: white;
   padding: 20px;
@@ -8,9 +7,11 @@
   opacity: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   gap: 0px;
   align-items: start;
   text-align: start;
+  overflow: hidden;
 
   img {
     width: 100px;
@@ -29,6 +30,12 @@
     color: #666;
     line-height: 1.5;
     margin-bottom: 20px;
+    max-height: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
   }
 
   .time {
