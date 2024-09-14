@@ -1,13 +1,19 @@
-import React from "react";
+import { useRouter } from "next/navigation";
 
-const formatDate = (dateString) => {
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  return new Date(dateString).toLocaleDateString(undefined, options);
-};
+export default function Card({ title, description, image, createdAt, id }) {
+  const router = useRouter();
 
-export default function Card({ title, description, image, createdAt }) {
+  const handelAllDetails = () => {
+    router.push(`/dashboard/blogs/${id}`);
+  };
+
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   return (
-    <div className="card-container">
+    <div className="cursor-pointer card-container" onClick={handelAllDetails}>
       <img src={image} alt={title} />
       <div className="company-name">{title}</div>
       <div className="description">{description}</div>
