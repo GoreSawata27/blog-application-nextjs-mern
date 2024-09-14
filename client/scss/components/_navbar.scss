@@ -1,0 +1,29 @@
+.navbar {
+  height: 94px;
+  width: calc(100vw - 248px);
+  background-color: #ffffff;
+  padding: 0 30px;
+  box-shadow: rgba(192, 192, 192, 0.16) 0px 4px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .username {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    color: #676e7e;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  .email {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+    color: #9d9daa;
+  }
+}

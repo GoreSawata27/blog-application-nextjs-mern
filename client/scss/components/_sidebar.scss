@@ -1,25 +1,28 @@
 .sidebar {
   width: 248px;
   height: 100vh;
-  padding: 0 30px;
   background: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: rgba(192, 192, 192, 0.16) 4px 0px 4px;
 
   .logo {
     height: 94px;
     display: flex;
     align-items: center;
+    justify-content: center;
     color: #6c5dd3;
     font-size: 32px;
     font-weight: bold;
     width: 100%;
-    padding-left: 25px;
+    width: 248px;
+    box-shadow: rgba(192, 192, 192, 0.16) 0px 4px 4px;
   }
 
   .links {
     display: flex;
+    padding: 0 30px;
     width: 100%;
 
     ul {
@@ -49,7 +52,5 @@
         }
       }
     }
-  }
-  .bottom {
   }
 }

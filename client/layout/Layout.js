@@ -1,5 +1,6 @@
 "use client";
 
+import Navbar from "@/Components/dashboard/Navbar";
 import Sidebar from "@/Components/dashboard/Sidebar";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -19,7 +20,10 @@ const Layout = ({ children }) => {
       <div>
         <Sidebar />
       </div>
-      <div>{children}</div>
+      <div>
+        <Navbar />
+        {children}
+      </div>
     </main>
   );
 };
