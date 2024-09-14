@@ -1,5 +1,6 @@
 "use client";
 
+import Sidebar from "@/Components/dashboard/Sidebar";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -14,8 +15,10 @@ const Layout = ({ children }) => {
   }, [router]);
 
   return (
-    <main>
-      <div>sidebar</div>
+    <main className="flex h-screen">
+      <div>
+        <Sidebar />
+      </div>
       <div>{children}</div>
     </main>
   );
