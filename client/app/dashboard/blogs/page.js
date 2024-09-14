@@ -57,6 +57,7 @@ export default function Blogs() {
               description={blog.description}
               image={blog.image}
               createdAt={blog.createdAt}
+              id={blog._id}
             />
           ))
         ) : (
