@@ -7,17 +7,32 @@
   justify-content: space-between;
   box-shadow: rgba(192, 192, 192, 0.16) 4px 0px 4px;
 
+  @media #{$smlg-device} {
+    width: 100px;
+  }
+  @media #{$small-mobile} {
+    display: none;
+  }
+
   .logo {
     height: 94px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-left: 20px;
     color: #6c5dd3;
     font-size: 32px;
     font-weight: bold;
     width: 100%;
     width: 248px;
-    // box-shadow: rgba(192, 192, 192, 0.16) 0px 4px 4px;
+    @media #{$smlg-device} {
+      padding-left: 30px;
+    }
+
+    .logo-label {
+      @media #{$smlg-device} {
+        display: none;
+      }
+    }
   }
 
   .links {
@@ -33,10 +48,20 @@
         align-items: center;
         gap: 5px;
         height: 60px;
+        color: #9d9daa;
 
         .sidebar-icons {
           width: 24px;
           height: 24px;
+
+          &.active {
+            color: #1818db;
+          }
+        }
+        .link-label {
+          @media #{$smlg-device} {
+            display: none;
+          }
         }
 
         span {

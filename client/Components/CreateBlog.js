@@ -67,7 +67,7 @@ export default function CreateBlog({ setOpen, getAllPosts }) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
-          className="input "
+          className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6 "
         />
       </div>
 
@@ -77,7 +77,7 @@ export default function CreateBlog({ setOpen, getAllPosts }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
-          className="textarea"
+          className="textarea rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
         />
       </div>
 
@@ -93,7 +93,7 @@ export default function CreateBlog({ setOpen, getAllPosts }) {
       </div>
 
       <button type="submit" className="submit-btn" disabled={isUploading}>
-        {isUploading ? "Uploading..." : "Submit Blog"}
+        {isUploading ? "Uploading..." : "Post Blog"}
       </button>
     </form>
   );

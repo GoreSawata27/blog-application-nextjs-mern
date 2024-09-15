@@ -70,5 +70,16 @@ input:-webkit-autofill:active {
   width: calc(100vw - 248px);
   height: calc(100vh - 94px);
   overflow-y: auto;
+  overflow-x: hidden;
   padding-bottom: 60px;
+
+  @media #{$smlg-device} {
+    width: calc(100vw - 100px);
+  }
+
+  @media #{$small-mobile} {
+    width: 100vw;
+    height: 100vh;
+    padding: 0 15px;
+  }
 }

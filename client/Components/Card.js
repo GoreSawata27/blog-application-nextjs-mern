@@ -14,7 +14,10 @@ export default function Card({ title, description, image, createdAt, id }) {
 
   return (
     <div className="cursor-pointer card-container" onClick={handelAllDetails}>
-      <img src={image} alt={title} />
+      <div className="flex items-center justify-center w-full ">
+        <img src={image} alt={title} />
+      </div>
+
       <div className="company-name">{title}</div>
       <div className="description">{description}</div>
       <div className="time">

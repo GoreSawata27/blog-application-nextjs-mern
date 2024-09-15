@@ -1,12 +1,22 @@
 .navbar {
   height: 94px;
-  width: calc(100vw - 248px);
+  width: 100%;
   background-color: #ffffff;
   padding: 0 30px;
   box-shadow: rgba(192, 192, 192, 0.16) 0px 4px 4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media #{$small-mobile} {
+    padding: 0 15px;
+  }
+
+  .nav-input {
+    @media #{$small-mobile} {
+      display: none;
+    }
+  }
 
   .username {
     font-family: Inter;
@@ -17,6 +27,9 @@
     color: #676e7e;
     font-weight: bold;
     text-transform: capitalize;
+    @media #{$small-mobile} {
+      display: none;
+    }
   }
   .email {
     font-family: Inter;
@@ -25,5 +38,8 @@
     line-height: 18px;
     text-align: left;
     color: #9d9daa;
+    @media #{$small-mobile} {
+      display: none;
+    }
   }
 }

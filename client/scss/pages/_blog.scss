@@ -12,6 +12,10 @@
     line-height: 20px;
     text-align: left;
     color: #1b1d21;
+
+    @media #{$small-mobile} {
+      font-size: 16px;
+    }
   }
 }
 
@@ -21,16 +25,14 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 
-  @media (max-width: 1024px) {
+  @media #{$smlg-device} {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  @media (max-width: 768px) {
+  @media #{$sm-layout} {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+  @media #{$small-mobile} {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -76,8 +78,7 @@
       transition: border-color 0.3s, box-shadow 0.3s;
 
       &:focus {
-        border-color: #6366f1;
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.4);
+        outline: none;
       }
     }
 
@@ -101,14 +102,14 @@
     font-size: 0.875rem;
     font-weight: 500;
     color: #fff;
-    background-color: #4f46e5;
+    background-color: var(--color-primary);
     border: none;
     border-radius: 0.375rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: #4338ca;
+      background-color: var(--color-primary);
     }
 
     &:disabled {
@@ -118,7 +119,6 @@
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.4);
     }
   }
 }

@@ -29,8 +29,17 @@ div {
       background: #ffff;
       width: 137px;
       height: 46px;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      box-shadow: rgba(61, 61, 61, 0.16) 0px 1px 4px;
       border-radius: 12px;
+
+      @media #{$small-mobile} {
+        font-size: 12px;
+        line-height: 18px;
+        width: 90px;
+        height: 26px;
+        background: transparent;
+        box-shadow: none;
+      }
     }
     &.preview-btn {
       font-family: Inter;
@@ -44,6 +53,13 @@ div {
       height: 46px;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
       border-radius: 12px;
+
+      @media #{$small-mobile} {
+        font-size: 12px;
+        width: 74px;
+        height: 30px;
+        border-radius: 12px;
+      }
     }
   }
 }

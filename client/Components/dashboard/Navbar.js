@@ -16,20 +16,11 @@ export default function Navbar() {
 
   return (
     <div className="navbar">
-      <div>
-        <input
-          id="Name"
-          name="Name"
-          type="text"
-          autoComplete="email"
-          placeholder="Afterglow"
-          className="block w-[225px] rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
-        />
-      </div>
+      <div></div>
       <div class="flex gap-6 -space-x-2 overflow-hidden">
         <img
           class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-          src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+          src="https://res.cloudinary.com/dgfc01mnb/image/upload/v1726373829/meteorologist-digital-avatar-_er1yxf.avif"
           alt=""
         />
         <div className="flex flex-col ">

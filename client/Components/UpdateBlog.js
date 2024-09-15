@@ -120,7 +120,7 @@ export default function UpdateBlog({ setOpen, slug, fetchBlog }) {
       </div>
 
       <button type="submit" className="submit-btn" disabled={isUploading}>
-        {isUploading ? "Updating..." : "Update"}
+        {isUploading ? "Updating..." : "Update & Post"}
       </button>
     </form>
   );
