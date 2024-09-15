@@ -4,16 +4,34 @@ import _api from "@/utils/_api";
 import { useEffect, useState } from "react";
 
 import * as React from "react";
-import Dialog from "@mui/material/Dialog";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 import CreateBlog from "@/Components/CreateBlog";
+import CardLoading from "@/Components/CardLoading";
+
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "50vw",
+  maxWidth: "1222px",
+  maxHeight: "580px",
+  minWidth: "300px",
+  border: "none",
+  boxShadow: "none",
+  p: 4,
+  overflow: "auto",
+  borderRadius: "12px",
+  zIndex: "9998",
+  transition: "all 0.3s ease-in-out",
+};
 
 export default function Blogs() {
   const [allBlogs, setAllBlogs] = useState([]);
   const [open, setOpen] = React.useState(false);
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const [isLoading, setIsloading] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -24,11 +42,14 @@ export default function Blogs() {
   };
 
   const getAllPosts = async () => {
+    setIsloading(true);
     try {
       const response = await _api.get("/api/posts");
       setAllBlogs(response.data?.reverse());
     } catch (error) {
       console.error("Failed to fetch blogs:", error);
+    } finally {
+      setIsloading(false);
     }
   };
 
@@ -49,7 +70,7 @@ export default function Blogs() {
       </div>
 
       <div className="blog-container">
-        {allBlogs.length > 0 ? (
+        {allBlogs.length > 0 &&
           allBlogs.map((blog) => (
             <Card
               key={blog._id}
@@ -59,20 +80,27 @@ export default function Blogs() {
               createdAt={blog.createdAt}
               id={blog._id}
             />
-          ))
-        ) : (
-          <p>No blogs available</p>
+          ))}
+        {allBlogs.length < 0 && !isLoading && <p>No blogs available</p>}
+        {isLoading && (
+          <>
+            <CardLoading />
+            <CardLoading />
+            <CardLoading />
+          </>
         )}
       </div>
       <>
-        <Dialog
-          fullScreen={fullScreen}
+        <Modal
           open={open}
           onClose={handleClose}
-          aria-labelledby="responsive-dialog-title"
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
         >
-          <CreateBlog setOpen={setOpen} getAllPosts={getAllPosts} />
-        </Dialog>
+          <Box sx={style} className="m-width">
+            <CreateBlog setOpen={setOpen} getAllPosts={getAllPosts} />
+          </Box>
+        </Modal>
       </>
     </>
   );

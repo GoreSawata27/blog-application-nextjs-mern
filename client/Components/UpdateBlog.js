@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import _api from "@/utils/_api";
 import axios from "axios";
 
-export default function UpdateBlog({ setOpen, slug }) {
+export default function UpdateBlog({ setOpen, slug, fetchBlog }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageFile, setImageFile] = useState(null);
@@ -69,6 +69,7 @@ export default function UpdateBlog({ setOpen, slug }) {
       setDescription("");
       setImageFile(null);
       setImageUrl(updatedImageUrl);
+      fetchBlog();
       setOpen(false);
     } catch (error) {
       console.error("Error posting blog:", error);
@@ -100,15 +101,6 @@ export default function UpdateBlog({ setOpen, slug }) {
       </div>
 
       <div className="form-group">
-        <label>Current Image</label>
-        {imageFile ? (
-          <img src={URL.createObjectURL(imageFile)} alt="New Preview" />
-        ) : (
-          <img src={imageUrl} alt="Current Image" />
-        )}
-      </div>
-
-      <div className="form-group">
         <label>Upload New Image</label>
         <input
           type="file"
@@ -119,7 +111,7 @@ export default function UpdateBlog({ setOpen, slug }) {
       </div>
 
       <button type="submit" className="submit-btn" disabled={isUploading}>
-        {isUploading ? "Updating..." : "Update"}
+        {isUploading ? "Updating..." : "Update & Post"}
       </button>
     </form>
   );

@@ -4,7 +4,7 @@ import { RiBloggerLine } from "react-icons/ri";
 import { MdOutlineFormatLineSpacing, MdAutoGraph } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
-
+import { SlEmotsmile } from "react-icons/sl";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -49,16 +49,25 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div>
-        <div className="logo">Jadwa</div>
+        <div className="flex gap-3 logo">
+          <SlEmotsmile className="sidebar-icons" />
+          <div className="logo-label">Jadwa</div>
+        </div>
         <div className="links">
           <ul>
             {links.map(({ href, icon, label }) => (
               <li key={href}>
                 <Link href={href}>
-                  <span className="flex gap-3 sidebar-item">
-                    {icon}
+                  <span className="flex items-center gap-3 sidebar-item">
                     <span
                       className={`link-item ${
+                        pathname === href ? "active" : ""
+                      }`}
+                    >
+                      {icon}
+                    </span>
+                    <span
+                      className={`link-label ${
                         pathname === href ? "active" : ""
                       }`}
                     >
@@ -77,9 +86,16 @@ export default function Sidebar() {
             <li key={href}>
               <Link href={href}>
                 <span className="flex gap-3 sidebar-item">
-                  {icon}
                   <span
                     className={`link-item ${pathname === href ? "active" : ""}`}
+                  >
+                    {icon}
+                  </span>
+
+                  <span
+                    className={`link-label ${
+                      pathname === href ? "active" : ""
+                    }`}
                   >
                     {label}
                   </span>
