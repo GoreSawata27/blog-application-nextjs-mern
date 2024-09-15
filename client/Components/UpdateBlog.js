@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import _api from "@/utils/_api";
 import axios from "axios";
 
-export default function UpdateBlog({ setOpen, slug }) {
+export default function UpdateBlog({ setOpen, slug, fetchBlog }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageFile, setImageFile] = useState(null);
@@ -69,6 +69,7 @@ export default function UpdateBlog({ setOpen, slug }) {
       setDescription("");
       setImageFile(null);
       setImageUrl(updatedImageUrl);
+      fetchBlog();
       setOpen(false);
     } catch (error) {
       console.error("Error posting blog:", error);
