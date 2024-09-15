@@ -11,7 +11,7 @@
     width: 100px;
   }
   @media #{$small-mobile} {
-    display: none;
+    width: 80px;
   }
 
   .logo {

@@ -20,7 +20,7 @@ div {
 
     &.add-btn {
       //styleName: Buttons/Big – 16 sB;
-      font-family: Inter;
+      font-family: var(--font-style);
       font-size: 16px;
       font-weight: 600;
       line-height: 20px;
@@ -39,10 +39,11 @@ div {
         height: 26px;
         background: transparent;
         box-shadow: none;
+        margin-top: 5px;
       }
     }
     &.preview-btn {
-      font-family: Inter;
+      font-family: var(--font-style);
       font-size: 16px;
       font-weight: 600;
       line-height: 20px;

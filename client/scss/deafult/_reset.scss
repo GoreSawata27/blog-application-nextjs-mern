@@ -1,21 +1,16 @@
 * {
   box-sizing: border-box;
-  font-family: var(--font-style) !important;
 }
 
 html {
   font-size: 16px;
+  height: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
 
-html,
 body {
-  height: 100%;
-}
-
-body {
-  font-family: var(--font-style);
+  font-family: var(--font-style) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: auto;
   text-rendering: optimizeSpeed;
@@ -78,8 +73,8 @@ input:-webkit-autofill:active {
   }
 
   @media #{$small-mobile} {
-    width: 100vw;
-    height: 100vh;
+    width: calc(100vw - 80px);
     padding: 0 15px;
+    padding-bottom: 50px;
   }
 }

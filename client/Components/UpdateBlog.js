@@ -101,15 +101,6 @@ export default function UpdateBlog({ setOpen, slug, fetchBlog }) {
       </div>
 
       <div className="form-group">
-        <label>Current Image</label>
-        {imageFile ? (
-          <img src={URL.createObjectURL(imageFile)} alt="New Preview" />
-        ) : (
-          <img src={imageUrl} alt="Current Image" />
-        )}
-      </div>
-
-      <div className="form-group">
         <label>Upload New Image</label>
         <input
           type="file"
