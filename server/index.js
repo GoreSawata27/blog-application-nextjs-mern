@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["https://deploy-frontend-tau.vercel.app", "http://localhost:3000"],
+    origin: ["https://deploy-frontend-tau.vercel.app", "http://localhost:3000", "http://localhost:5173"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
