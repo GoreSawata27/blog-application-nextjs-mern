@@ -1,16 +1,24 @@
 import "./App.css";
-import { ModeToggle } from "./components/mode-toggle";
-import Navbar from "./components/Navbar";
-import { Button } from "./components/ui/button";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Home from "@/pages/Home";
+import BlogDetail from "@/pages/BlogDetail";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+// import { ModeToggle } from "./components/mode-toggle";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <ModeToggle />
-
-      <Button variant={"outline"}>Test</Button>
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog/:id" element={<BlogDetail />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
