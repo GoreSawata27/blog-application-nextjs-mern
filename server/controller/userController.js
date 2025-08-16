@@ -45,4 +45,21 @@ const loginUser = async (req, res) => {
   }
 };
 
-export { registerUser, loginUser };
+const getAllUsers = async (req, res) => {
+  const users = await User.find({}).select("-password");
+  res.json(users);
+};
+
+const getUserById = async (req, res) => {
+  const { id } = req.params;
+
+  const user = await User.findById(id).select("-password");
+
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(404).json({ message: "User not found" });
+  }
+};
+
+export { registerUser, loginUser, getAllUsers, getUserById };
