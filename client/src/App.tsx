@@ -6,11 +6,13 @@ import Home from "@/pages/Home";
 import BlogDetail from "@/pages/BlogDetail";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import { Toaster } from "sonner";
 // import { ModeToggle } from "./components/mode-toggle";
 
 function App() {
   return (
     <BrowserRouter>
+      <Toaster richColors position="top-right" />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
