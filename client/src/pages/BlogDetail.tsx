@@ -75,7 +75,7 @@ export default function BlogDetail() {
                 </Button>
               </span>
             </div>
-            <p className="mb-4 text-sm text-gray-400">{blog.createdAt}</p>
+            <p className="mb-4 text-sm text-gray-400">{new Date(blog.createdAt).toString()}</p>
             <p className="text-gray-700">{blog.description}</p>
           </div>
         </div>

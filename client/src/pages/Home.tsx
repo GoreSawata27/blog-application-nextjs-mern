@@ -3,6 +3,9 @@ import BlogCard from "@/components/BlogCard";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import _api from "@/services/_api";
+import CreateBlog from "./CreateBlog";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 type Blog = {
   _id: string;
@@ -15,6 +18,7 @@ type Blog = {
 export default function Home() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [createBlogModal, setCreateBlogModal] = useState(false);
 
   const getAllBlogs = async () => {
     setIsLoading(true);
@@ -28,13 +32,30 @@ export default function Home() {
     }
   };
 
+  const handleCreateBlogModal = () => {
+    const CheckToken = localStorage.getItem("jwtToken");
+
+    if (!CheckToken) {
+      toast.error("You must be logged in to create a blog");
+      return;
+    }
+    setCreateBlogModal(true);
+  };
+
   useEffect(() => {
     getAllBlogs();
   }, []);
 
   return (
     <div>
-      <Hero name="Gore" />
+      <section className="flex justify-between px-8 py-6 ">
+        <Hero name="Gore" />
+        <Button className="cursor-pointer" onClick={handleCreateBlogModal}>
+          + Create Blog
+        </Button>
+
+        <CreateBlog open={createBlogModal} onOpenChange={setCreateBlogModal} getAllBlogs={getAllBlogs} />
+      </section>
 
       <div className="grid grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3">
         {isLoading &&
