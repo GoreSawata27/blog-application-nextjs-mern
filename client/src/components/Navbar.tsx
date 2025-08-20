@@ -34,8 +34,8 @@ export default function Navbar() {
           </Button>
         ) : (
           <>
-            <SignIn />
-            <SignUp />
+            <SignIn setAlreadySignedIn={setAlreadySignedIn} />
+            <SignUp setAlreadySignedIn={setAlreadySignedIn} />
           </>
         )}
       </div>

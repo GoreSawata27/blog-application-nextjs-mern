@@ -7,7 +7,11 @@ import _api from "@/services/_api";
 import { toast } from "sonner";
 import type { AxiosError } from "axios";
 
-export default function SignIn() {
+type loginCheck = {
+  setAlreadySignedIn: (value: boolean) => void;
+};
+
+export default function SignIn({ setAlreadySignedIn }: loginCheck) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -28,6 +32,7 @@ export default function SignIn() {
       toast.success("Signed in successfully ", {
         description: `Welcome back, ${res.data?.name || "User"}!`,
       });
+      setAlreadySignedIn(true);
     } catch (error) {
       const axiosError = error as AxiosError<{ message: string }>;
 

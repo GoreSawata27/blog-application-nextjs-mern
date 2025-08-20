@@ -2,8 +2,8 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
 const _authApi = axios.create({
-  baseURL: "http://localhost:8000",
-  // baseURL: "https://deploy-backend-h9zt.onrender.com/",
+  // baseURL: "http://localhost:8000",
+  baseURL: "https://deploy-backend-h9zt.onrender.com/",
 });
 
 _authApi.interceptors.request.use(

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { formatDate } from "@/lib/DateConverter";
 
 type BlogCardProps = {
   id: string;
@@ -24,7 +25,7 @@ export default function BlogCard({ id, title, image, description, createdAt }: B
         <div className="flex flex-col flex-grow">
           <CardHeader className="pb-2">
             <CardTitle className="text-lg">{title}</CardTitle>
-            <p className="text-xs text-gray-400">{createdAt}</p>
+            <p className="text-xs text-gray-400">{formatDate(createdAt)}</p>
           </CardHeader>
 
           <CardContent className="flex-grow">
