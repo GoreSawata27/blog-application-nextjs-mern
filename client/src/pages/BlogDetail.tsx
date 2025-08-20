@@ -8,11 +8,13 @@ import { formatDate } from "@/lib/DateConverter";
 import _authApi from "@/services/_authApi";
 import { toast } from "sonner";
 import { CheckToken } from "@/lib/CheckToken";
+import UpdateBlog from "./UpdateBlog";
 
 export default function BlogDetail() {
   const { id } = useParams<{ id: string }>();
   const [blog, setBlog] = useState<BlogType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [updateBlogModal, setUpdateBlogModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -27,6 +29,7 @@ export default function BlogDetail() {
       setLoading(false);
     }
   };
+
   const deleteBlog = async () => {
     if (!CheckToken()) return;
     setLoading(true);
@@ -35,8 +38,8 @@ export default function BlogDetail() {
       toast.success("Blog deleted successfully...");
       navigate("/");
     } catch (err) {
-      console.error("Error fetching blog:", err);
-      toast.success("Failed to delete blog");
+      console.error("Error deleting blog:", err);
+      toast.error("Failed to delete blog");
     } finally {
       setLoading(false);
     }
@@ -79,7 +82,13 @@ export default function BlogDetail() {
             <div className="flex gap-4 items-center justify-between mt-6">
               <h1 className="mb-2 text-3xl font-bold">{blog.title}</h1>
               <span className="flex gap-4">
-                <Button variant="default" onClick={() => alert("Edit feature coming soon")}>
+                <Button
+                  variant="default"
+                  onClick={() => {
+                    if (!CheckToken()) return;
+                    setUpdateBlogModal(true);
+                  }}
+                >
                   Edit
                 </Button>
                 <Button variant="destructive" onClick={deleteBlog}>
@@ -92,6 +101,13 @@ export default function BlogDetail() {
           </div>
         </div>
       </div>
+
+      <UpdateBlog
+        open={updateBlogModal}
+        onOpenChange={setUpdateBlogModal}
+        getUpdatedBlog={getBlog}
+        blog={blog}
+      />
     </div>
   );
 }
