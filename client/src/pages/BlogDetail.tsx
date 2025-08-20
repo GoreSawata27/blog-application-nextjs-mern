@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import type { BlogType } from "@/types/blog.interface";
 import { Skeleton } from "@/components/ui/skeleton";
 import { formatDate } from "@/lib/DateConverter";
+import _authApi from "@/services/_authApi";
+import { toast } from "sonner";
+import { CheckToken } from "@/lib/CheckToken";
 
 export default function BlogDetail() {
   const { id } = useParams<{ id: string }>();
@@ -20,6 +23,20 @@ export default function BlogDetail() {
       setBlog(response.data);
     } catch (err) {
       console.error("Error fetching blog:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const deleteBlog = async () => {
+    if (!CheckToken()) return;
+    setLoading(true);
+    try {
+      await _authApi.delete(`/api/posts/${id}`);
+      toast.success("Blog deleted successfully...");
+      navigate("/");
+    } catch (err) {
+      console.error("Error fetching blog:", err);
+      toast.success("Failed to delete blog");
     } finally {
       setLoading(false);
     }
@@ -65,13 +82,7 @@ export default function BlogDetail() {
                 <Button variant="default" onClick={() => alert("Edit feature coming soon")}>
                   Edit
                 </Button>
-                <Button
-                  variant="destructive"
-                  onClick={() => {
-                    alert("Deleted");
-                    navigate("/");
-                  }}
-                >
+                <Button variant="destructive" onClick={deleteBlog}>
                   Delete
                 </Button>
               </span>

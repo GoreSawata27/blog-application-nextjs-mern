@@ -5,7 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import _api from "@/services/_api";
 import CreateBlog from "./CreateBlog";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import { CheckToken } from "@/lib/CheckToken";
 
 type Blog = {
   _id: string;
@@ -33,12 +33,7 @@ export default function Home() {
   };
 
   const handleCreateBlogModal = () => {
-    const CheckToken = localStorage.getItem("jwtToken");
-
-    if (!CheckToken) {
-      toast.error("You must be logged in to create a blog");
-      return;
-    }
+    if (!CheckToken()) return;
     setCreateBlogModal(true);
   };
 
